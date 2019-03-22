@@ -357,7 +357,7 @@ interface ShapeSourceProps {
     tolerance?: number;
     images?: any;
     onPress?: () => void;
-    hitbox: any;
+    hitbox?: any;
 }
 
 interface RasterSourceProps {
