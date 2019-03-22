@@ -36,7 +36,7 @@ declare namespace MapboxGL {
     class MapView extends Component<MapViewProps> {
         getPointInView(coordinate: Array<number>): Promise<void>;
         getCoordinateFromView(point: Array<number>): Promise<void>;
-        getVisibleBounds(): Promise<void>;
+        getVisibleBounds(): Promise<Array<Array<number>>>;
         queryRenderedFeaturesAtPoint(coordinate: Array<number>, filter?: Array<string>, layerIds?: Array<string>): Promise<void>;
         queryRenderedFeaturesInRect(coordinate: Array<number>, filter?: Array<string>, layerIds?: Array<string>): Promise<void>;
         fitBounds(northEastCoordinates: Array<number>, southWestCoordinates: Array<number>, padding?: number, duration?: number): void;
@@ -49,14 +49,16 @@ declare namespace MapboxGL {
         getCenter(): Promise<Array<number>>;
     }
 
+    class ShapeSource extends Component<ShapeSourceProps> { }
+
     class Light extends Component<LightProps> { }
 
-    class StyleSheet extends Component {
-        camera(stops: {[key: number]: string}, interpolationMode?: InterpolationMode): void;
-        source(stops: {[key: number]: string}, attributeName: string, interpolationMode?: InterpolationMode): void;
-        composite(stops: {[key: number]: string}, attributeName: string, interpolationMode?: InterpolationMode): void;
-
-        identity(attributeName: string): number;
+    declare namespace StyleSheet {
+        function camera(stops: {[key: number]: string}, interpolationMode?: InterpolationMode): void;
+        function source(stops: {[key: number]: string}, attributeName: string, interpolationMode?: InterpolationMode): void;
+        function composite(stops: {[key: number]: string}, attributeName: string, interpolationMode?: InterpolationMode): void;
+        function create<T extends NamedStyles<T> | NamedStyles<any>>(styles: T): T;
+        function identity(attributeName: string): number;
     }
 
     class PointAnnotation extends Component<PointAnnotationProps> { }
@@ -143,7 +145,7 @@ interface MapViewProps extends ViewProperties {
     pitch?: number;
     style?: any;
     styleURL?: MapboxGL.StyleURL;
-    zoomlevel?: number;
+    zoomLevel?: number;
     minZoomLevel?: number;
     maxZoomLevel?: number;
     localizeLabels?: boolean;
