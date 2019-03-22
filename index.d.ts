@@ -49,8 +49,6 @@ declare namespace MapboxGL {
         getCenter(): Promise<Array<number>>;
     }
 
-    class ShapeSource extends Component<ShapeSourceProps> { }
-
     class Light extends Component<LightProps> { }
 
     declare namespace StyleSheet {
@@ -68,7 +66,7 @@ declare namespace MapboxGL {
      * Sources
      */
     class VectorSource extends Component<VectorSourceProps> { }
-    class ShapeSourceProps extends Component<ShapeSourceProps> { }
+    class ShapeSource extends Component<ShapeSourceProps> { }
     class RasterSource extends Component<RasterSourceProps> { }
 
     /**
