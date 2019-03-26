@@ -9,6 +9,10 @@ import {
     ViewStyle,
 } from 'react-native';
 
+import {
+    FeatureCollection
+} from 'geojson';
+
 /**
  * These are the typings for the Mapbox React Native module.
  * They are modelled after the documentation and may not be 100% accurate.
@@ -348,7 +352,7 @@ interface VectorSourceProps {
 interface ShapeSourceProps {
     id?: string;
     url?: string;
-    shape?: any;
+    shape?: FeatureCollection;
     cluter?: boolean;
     clusterRadius?: number;
     clusterMaxZoomLevel?: number;
