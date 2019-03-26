@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 import {
+    Geometry,
+    Feature,
     FeatureCollection
 } from 'geojson';
 
@@ -164,7 +166,7 @@ interface MapViewProps extends ViewProperties {
     onLongPress?: () => void;
     onRegionWillChange?: () => void;
     onRegionIsChanging?: () => void;
-    onRegionDidChange?: () => void;
+    onRegionDidChange?: (center: Feature) => void;
     onUserLocationUpdate?: () => void;
     onWillStartLoadingMap?: () => void;
     onDidFinishLoadingMap?: () => void;
@@ -352,7 +354,7 @@ interface VectorSourceProps {
 interface ShapeSourceProps {
     id?: string;
     url?: string;
-    shape?: FeatureCollection;
+    shape?: Geometry | Feature | FeatureCollection;
     cluter?: boolean;
     clusterRadius?: number;
     clusterMaxZoomLevel?: number;
