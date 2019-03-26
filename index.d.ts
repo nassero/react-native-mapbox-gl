@@ -166,7 +166,7 @@ interface MapViewProps extends ViewProperties {
     onLongPress?: () => void;
     onRegionWillChange?: () => void;
     onRegionIsChanging?: () => void;
-    onRegionDidChange?: (center: Feature) => void;
+    onRegionDidChange?: (center: any) => void;
     onUserLocationUpdate?: () => void;
     onWillStartLoadingMap?: () => void;
     onDidFinishLoadingMap?: () => void;
