@@ -162,7 +162,7 @@ interface MapViewProps extends ViewProperties {
     compassEnabled?: boolean;
     surfaceView?: boolean;
 
-    onPress?: () => void;
+    onPress?: (e: Feature) => void;
     onLongPress?: () => void;
     onRegionWillChange?: () => void;
     onRegionIsChanging?: () => void;
